@@ -15,7 +15,6 @@
 }
 
 .users {
-  background-color: #ffffff;
   display: flex;
   flex-direction:row;
   align-items: center;
@@ -30,6 +29,8 @@
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  opacity: 0.8;
+  font-size:x-small;
 }
 
 .App-link {

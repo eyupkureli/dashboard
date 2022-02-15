@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
+
 export default function UserList() {
+  let navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
   const getUsers = () => {
@@ -20,8 +24,14 @@ export default function UserList() {
   return (
     <div>
       <div className="users">
-        User List
-        <Button variant="contained" color="primary">
+        <strong>User List</strong>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            navigate("/userform");
+          }}
+        >
           Add New
         </Button>
       </div>
@@ -37,20 +47,20 @@ export default function UserList() {
             <td>Delete</td>
           </tr>
           {users.map((user, index) => (
-            <tr key = {user.id}>
+            <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.username}</td>
               <td>{user.email}</td>
               <td>{user.address.city}</td>
               <td>
-                <button style={{backgroundColor: "yellow"}}>
-                  Edit
+                <button style={{ backgroundColor: "yellow", border: "none" }}>
+                  edit
                 </button>
               </td>
               <td>
-                <button style={{backgroundColor: "red"}}>
-                  Delete
+                <button style={{ backgroundColor: "red", border: "none" }}>
+                  delete
                 </button>
               </td>
             </tr>
