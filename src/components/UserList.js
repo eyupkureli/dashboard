@@ -53,12 +53,12 @@ export default function UserList() {
             <TableHead>
               <TableRow>
                 <TableCell>ID</TableCell>
-                <TableCell align="right">Name</TableCell>
-                <TableCell align="right">Username</TableCell>
-                <TableCell align="right">Email</TableCell>
-                <TableCell align="right">City</TableCell>
-                <TableCell align="right">Edit</TableCell>
-                <TableCell align="right">Delete</TableCell>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="center">Username</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">City</TableCell>
+                <TableCell align="center">Edit</TableCell>
+                <TableCell align="center">Delete</TableCell>
               </TableRow>
             </TableHead>
 
@@ -71,16 +71,16 @@ export default function UserList() {
                   <TableCell component="th" scope="row">
                     {user.id}
                   </TableCell>
-                  <TableCell align="right">{user.name}</TableCell>
-                  <TableCell align="right">{user.username}</TableCell>
-                  <TableCell align="right">{user.email}</TableCell>
-                  <TableCell align="right">{user.address.city}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">{user.name}</TableCell>
+                  <TableCell align="center">{user.username}</TableCell>
+                  <TableCell align="center">{user.email}</TableCell>
+                  <TableCell align="center">{user.address.city}</TableCell>
+                  <TableCell align="center">
                     <Button variant="contained" color="success">
                       Edit
                     </Button>
                   </TableCell>
-                  <TableCell align="right">
+                  <TableCell align="center">
                     <Button
                       variant="contained"
                       color="success"
