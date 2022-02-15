@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export default function UserList() {
   let navigate = useNavigate();
@@ -36,36 +41,48 @@ export default function UserList() {
         </Button>
       </div>
       <div className="users">
-        <table className="usertable">
-          <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>Username</td>
-            <td>Email</td>
-            <td>City</td>
-            <td>Edit</td>
-            <td>Delete</td>
-          </tr>
-          {users.map((user, index) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.username}</td>
-              <td>{user.email}</td>
-              <td>{user.address.city}</td>
-              <td>
-                <button style={{ backgroundColor: "yellow", border: "none" }}>
-                  edit
-                </button>
-              </td>
-              <td>
-                <button style={{ backgroundColor: "red", border: "none" }}>
-                  delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </table>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell align="right">Name</TableCell>
+                <TableCell align="right">Username</TableCell>
+                <TableCell align="right">Email</TableCell>
+                <TableCell align="right">City</TableCell>
+                <TableCell align="right">Edit</TableCell>
+                <TableCell align="right">Delete</TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {users.map((user, index) => (
+                <TableRow
+                  key={user.id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {user.id}
+                  </TableCell>
+                  <TableCell align="right">{user.name}</TableCell>
+                  <TableCell align="right">{user.username}</TableCell>
+                  <TableCell align="right">{user.email}</TableCell>
+                  <TableCell align="right">{user.address.city}</TableCell>
+                  <TableCell align="right">
+                    <Button variant="contained" color="success">
+                      Edit
+                    </Button>
+                  </TableCell>
+                  <TableCell align="right">
+                    <Button variant="contained" color="success">
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   );
