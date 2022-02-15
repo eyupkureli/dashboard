@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -10,6 +11,7 @@ import Stack from "@mui/material/Stack";
 export default function UserForm() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  let navigate = useNavigate();
 
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -59,10 +61,22 @@ export default function UserForm() {
         </div>
         <div className="users">
           <Stack direction="row" spacing={2}>
-            <Button variant="outlined" color="error" >
+            <Button
+              variant="outlined"
+              color="error"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               Cancel
             </Button>
-            <Button variant="contained" color="success">
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               Submit
             </Button>
           </Stack>

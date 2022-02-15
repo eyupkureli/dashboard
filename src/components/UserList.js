@@ -22,6 +22,13 @@ export default function UserList() {
       .then((response) => setUsers(response.data));
   };
 
+  const handleDelete = (id) => {
+    const newUsers = [...users];
+    const index = users.findIndex((user) => user.id === id);
+    newUsers.splice(index, 1);
+    setUsers(newUsers);
+  };
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -74,7 +81,11 @@ export default function UserList() {
                     </Button>
                   </TableCell>
                   <TableCell align="right">
-                    <Button variant="contained" color="success">
+                    <Button
+                      variant="contained"
+                      color="success"
+                      onClick={handleDelete}
+                    >
                       Delete
                     </Button>
                   </TableCell>
